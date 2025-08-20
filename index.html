@@ -169,12 +169,43 @@
       opacity: 0.3;
     }
 
-    /* Основной контент с отступом сверху */
+    /* Заголовок поверх видео */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 100;
+      pointer-events: none;
+    }
+    
+    .video-overlay .badge {
+      pointer-events: auto;
+    }
+    
+    .video-overlay .title {
+      pointer-events: auto;
+      margin-top: 1rem;
+    }
+    
+    .video-overlay .subtitle {
+      pointer-events: auto;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+
+    /* Основной контент с отступом сверху - ИСПРАВЛЕНО: убран фон */
     .main-content {
       position: relative;
       margin-top: 30vh; /* Отступ равен высоте видео */
       z-index: 1;
-      background: var(--bg);
+      /* Убрано: background: var(--bg); */
     }
 
     /* small helpers */
@@ -194,9 +225,16 @@
     </video>
   </div>
 
+  <!-- Заголовок поверх видео -->
+  <div class="video-overlay">
+    <span class="badge">FENIX • OSINT • SEARCH</span>
+    <h1 class="title">Как работает бот <span style="color:#fff">FENIX</span></h1>
+    <p class="subtitle">Коротко о механике: индексация данных из открытых источников (OSINT), поиск по подготовленным витринам и обработка результатов с учётом ограничений и качества источников.</p>
+  </div>
+
   <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M3 9v极h4l5 5V4L7 9H3z"/>
       <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z"/>
       <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z"/>
     </svg>
@@ -218,12 +256,6 @@
 
   <!-- Основной контент -->
   <div class="main-content">
-    <header class="hero">
-      <span class="badge">FENIX • OSINT • SEARCH</span>
-      <h1 class="title">Как работает бот <span style="color:#fff">FENIX</span></h1>
-      <p class="subtitle">Коротко о механике: индексация данных из открытых источников (OSINT), поиск по подготовленным витринам и обработка результатов с учётом ограничений и качества источников.</p>
-    </header>
-
     <main class="wrap">
       <section class="grid">
         <article class="card">
