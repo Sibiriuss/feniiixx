@@ -152,7 +152,7 @@
     a.inline { color:var(--accent); text-decoration:none; border-bottom:1px dashed rgba(0,255,224,.4); }
     a.inline:hover { border-bottom-color: transparent; }
 
-    /* видео сверху - ИЗМЕНЕНО: только верхняя часть */
+    /* видео сверху - ИЗМЕНЕНО: фиксированное только вверху */
     .video-top {
       position: fixed;
       top: 0;
@@ -169,11 +169,12 @@
       opacity: 0.3;
     }
 
-    /* Добавим контентный контейнер с отступом сверху */
-    .content-container {
+    /* Основной контент с отступом сверху */
+    .main-content {
       position: relative;
       margin-top: 30vh; /* Отступ равен высоте видео */
       z-index: 1;
+      background: var(--bg);
     }
 
     /* small helpers */
@@ -185,7 +186,7 @@
   <div class="stars2"></div>
   <div class="stars3"></div>
 
-  <!-- видео сверху -->
+  <!-- видео сверху - фиксированное -->
   <div class="video-top">
     <video autoplay loop muted playsinline>
       <source src="LogoWork.mp4" type="video/mp4">
@@ -193,29 +194,30 @@
     </video>
   </div>
 
-  <div class="content-container">
-    <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
-        <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z"/>
-        <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z"/>
-      </svg>
-    </button>
+  <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z"/>
+      <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z"/>
+    </svg>
+  </button>
 
-    <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
-      <div></div><div></div><div></div>
-    </div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
+    <div></div><div></div><div></div>
+  </div>
 
-    <nav class="side-menu" id="sideMenu" aria-hidden="true">
-      <a href="index.html">Главная</a>
-      <a href="docs.html">О нас</a>
-      <a href="agreement.html">Пользовательское соглашение</a>
-      <a href="removal.html">Удалить себя</a>
-      <a href="faq.html">FAQ</a>
-      <a href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">Поддержка</a>
-      <a href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Перейти в бота</a>
-    </nav>
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <a href="index.html">Главная</a>
+    <a href="docs.html">О нас</a>
+    <a href="agreement.html">Пользовательское соглашение</a>
+    <a href="removal.html">Удалить себя</a>
+    <a href="faq.html">FAQ</a>
+    <a href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">Поддержка</a>
+    <a href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Перейти в бота</a>
+  </nav>
 
+  <!-- Основной контент -->
+  <div class="main-content">
     <header class="hero">
       <span class="badge">FENIX • OSINT • SEARCH</span>
       <h1 class="title">Как работает бот <span style="color:#fff">FENIX</span></h1>
