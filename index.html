@@ -152,13 +152,13 @@
     a.inline { color:var(--accent); text-decoration:none; border-bottom:1px dashed rgba(0,255,224,.4); }
     a.inline:hover { border-bottom-color: transparent; }
 
-    /* видео сверху */
+    /* видео сверху - ИЗМЕНЕНО: только верхняя часть */
     .video-top {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 30vh;
+      height: 30vh; /* Только 30% высоты экрана */
       z-index: -1;
       overflow: hidden;
     }
@@ -167,6 +167,13 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.3;
+    }
+
+    /* Добавим контентный контейнер с отступом сверху */
+    .content-container {
+      position: relative;
+      margin-top: 30vh; /* Отступ равен высоте видео */
+      z-index: 1;
     }
 
     /* small helpers */
@@ -186,105 +193,106 @@
     </video>
   </div>
 
-  <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
-      <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z"/>
-      <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z"/>
-    </svg>
-  </button>
+  <div class="content-container">
+    <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+        <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z"/>
+        <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z"/>
+      </svg>
+    </button>
 
-  <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
-    <div></div><div></div><div></div>
-  </div>
+    <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
+      <div></div><div></div><div></div>
+    </div>
 
-  <nav class="side-menu" id="sideMenu" aria-hidden="true">
-    <a href="index.html">Главная</a>
-    <a href="docs.html">О нас</a>
-    <a href="agreement.html">Пользовательское соглашение</a>
-    <a href="removal.html">Удалить себя</a>
-    <a href="faq.html">FAQ</a>
-    <a href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">Поддержка</a>
-    <a href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Перейти в бота</a>
-  </nav>
+    <nav class="side-menu" id="sideMenu" aria-hidden="true">
+      <a href="index.html">Главная</a>
+      <a href="docs.html">О нас</a>
+      <a href="agreement.html">Пользовательское соглашение</a>
+      <a href="removal.html">Удалить себя</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">Поддержка</a>
+      <a href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Перейти в бота</a>
+    </nav>
 
-  <header class="hero">
-    <span class="badge">FENIX • OSINT • SEARCH</span>
-    <h1 class="title">Как работает бот <span style="color:#fff">FENIX</span></h1>
-    <p class="subtitle">Коротко о механике: индексация данных из открытых источников (OSINT), поиск по подготовленным витринам и обработка результатов с учётом ограничений и качества источников.</p>
-  </header>
+    <header class="hero">
+      <span class="badge">FENIX • OSINT • SEARCH</span>
+      <h1 class="title">Как работает бот <span style="color:#fff">FENIX</span></h1>
+      <p class="subtitle">Коротко о механике: индексация данных из открытых источников (OSINT), поиск по подготовленным витринам и обработка результатов с учётом ограничений и качества источников.</p>
+    </header>
 
-  <main class="wrap">
-    <section class="grid">
-      <article class="card">
-        <h3>Что делает бот</h3>
-        <p>Работа нашего бота <strong>Fenix-Osint</strong> осуществляется «<em>индексированием</em>» по базам данных. Бот может выдавать ошибки при работе.</p>
-        <div class="note mt-2">
-          <strong>Индексирование</strong> — это процесс, при котором поисковые системы собирают, анализируют и систематизируют информацию с веб-страниц, банков, месседжеров, чтобы затем предоставить её пользователю при запросе. Цель — улучшить сбор в базы.
-        </div>
-        <p class="mt-2"><strong>OSINT</strong> (от англ. <em>Open Source Intelligence</em>) — «разведка по открытым источникам». Это процесс сбора и анализа информации, доступной в публичном пространстве: интернет, соцсети, СМИ, открытые базы, форумы и т. д.</p>
-      </article>
+    <main class="wrap">
+      <section class="grid">
+        <article class="card">
+          <h3>Что делает бот</h3>
+          <p>Работа нашего бота <strong>Fenix-Osint</strong> осуществляется «<em>индексированием</em>» по базам данных. Бот может выдавать ошибки при работе.</p>
+          <div class="note mt-2">
+            <strong>Индексирование</strong> — это процесс, при котором поисковые системы собирают, анализируют и систематизируют информацию с веб-страниц, банков, месседжеров, чтобы затем предоставить её пользователю при запросе. Цель — улучшить сбор в базы.
+          </div>
+          <p class="mt-2"><strong>OSINT</strong> (от англ. <em>Open Source Intelligence</em>) — «разведка по открытым источникам». Это процесс сбора и анализа информации, доступной в публичном пространстве: интернет, соцсети, СМИ, открытые базы, форумы и т. д.</p>
+        </article>
 
-      <article class="card">
-        <h3>Краткий цикл запроса</h3>
-        <ol style="padding-left:1.2rem; color:#bcd0e2;">
-          <li><strong>Нормализация</strong> запроса (телефон → E.164, ФИО → варианты написаний).</li>
-          <li><strong>Поиск</strong> по проиндексированным витринам данных (кэши/слепки).</li>
-          <li><strong>Сведение</strong> совпадений и дедупликация.</li>
-          <li><strong>Оценка качества</strong> (дата источника, полнота полей, пересечения).</li>
-          <li><strong>Ответ</strong> с пометками <span class="pill ok">найдено</span> / <span class="pill err">ошибка/нет совпадений</span>.</li>
-        </ol>
-        <pre class="code mt-2">Пример:
+        <article class="card">
+          <h3>Краткий цикл запроса</h3>
+          <ol style="padding-left:1.2rem; color:#bcd0e2;">
+            <li><strong>Нормализация</strong> запроса (телефон → E.164, ФИО → варианты написаний).</li>
+            <li><strong>Поиск</strong> по проиндексированным витринам данных (кэши/слепки).</li>
+            <li><strong>Сведение</strong> совпадений и дедупликация.</li>
+            <li><strong>Оценка качества</strong> (дата источника, полнота полей, пересечения).</li>
+            <li><strong>Ответ</strong> с пометками <span class="pill ok">найдено</span> / <span class="pill err">ошибка/нет совпадений</span>.</li>
+          </ol>
+          <pre class="code mt-2">Пример:
 /search phone +380XXXXXXXXX
 /search fio   Иванов Иван Иванович, 1995-04-01</pre>
-      </article>
+        </article>
 
-      <article class="card">
-        <h3>Частые причины ошибок</h3>
-        <ul>
-          <li>Временная недоступность источника или лимиты на стороне провайдеров.</li>
-          <li>Изменение структуры стороннего сайта/базы (нужно обновление коннектора).</li>
-          <li>Слишком общий запрос (много однофамильцев) — попробуйте добавить дату рождения/регион.</li>
-          <li>Свежие утечки ещё не проиндексированы. Индексация — процесс, а не мгновенная операция.</li>
-        </ul>
-        <p class="mt-2 note">Совет: повторите запрос позже или уточните критерии — добавьте e-mail, год рождения, город.</p>
-      </article>
+        <article class="card">
+          <h3>Частые причины ошибок</h3>
+          <ul>
+            <li>Временная недоступность источника или лимиты на стороне провайдеров.</li>
+            <li>Изменение структуры стороннего сайта/базы (нужно обновление коннектора).</li>
+            <li>Слишком общий запрос (много однофамильцев) — попробуйте добавить дату рождения/регион.</li>
+            <li>Свежие утечки ещё не проиндексированы. Индексация — процесс, а не мгновенная операция.</li>
+          </ul>
+          <p class="mt-2 note">Совет: повторите запрос позже или уточните критерии — добавьте e-mail, год рождения, город.</p>
+        </article>
 
-      <article class="card">
-        <h3>Как повысить точность</h3>
-        <ul>
-          <li>Используйте <span class="kbd">+код страны</span> и полный номер телефона.</li>
-          <li>Для ФИО — укажите <span class="kbd">дату рождения</span> и возможные варианты транслитерации.</li>
-          <li>Комбинируйте поля: <span class="kbd">ФИО + город</span>, <span class="kbd">email + ник</span>.</li>
-          <li>Проверяйте релевантность по времени: дата обновления записи важнее количества совпадений.</li>
-        </ul>
-      </article>
+        <article class="card">
+          <h3>Как повысить точность</h3>
+          <ul>
+            <li>Используйте <span class="kbd">+код страны</span> и полный номер телефона.</li>
+            <li>Для ФИО — укажите <span class="kbd">дату рождения</span> и возможные варианты транслитерации.</li>
+            <li>Комбинируйте поля: <span class="kbd">ФИО + город</span>, <span class="kbd">email + ник</span>.</li>
+            <li>Проверяйте релевантность по времени: дата обновления записи важнее количества совпадений.</li>
+          </ul>
+        </article>
 
-      <article class="card">
-        <h3>Этика и законность</h3>
-        <ul>
-          <li>Используйте бот только в рамках закона и пользовательского соглашения.</li>
-          <li>Не применяйте результаты для преследования, дискриминации или мошенничества.</li>
-          <li>Уважайте право на удаление — в разделе «Удалить себя» можно подать запрос на исключение.</li>
-          <li>Часть источников может содержать
- неточности — всегда проводите вторичную проверку.</li>
-        </ul>
-      </article>
+        <article class="card">
+          <h3>Этика и законность</h3>
+          <ul>
+            <li>Используйте бот только в рамках закона и пользовательского соглашения.</li>
+            <li>Не применяйте результаты для преследования, дискриминации или мошенничества.</li>
+            <li>Уважайте право на удаление — в разделе «Удалить себя» можно подать запрос на исключение.</li>
+            <li>Часть источников может содержать неточности — всегда проводите вторичную проверку.</li>
+          </ul>
+        </article>
 
-      <article class="card">
-        <h3>Приватность и безопасность</h3>
-        <p>Мы не просим пароли и не показываем скрытые данные аккаунтов. Источники — только публичное пространство и легальные витрины данных.</p>
-        <p class="mt-1">Обращайте внимание на метки времени, ссылки на исходные страницы и степень совпадений.</p>
-      </article>
-    </section>
+        <article class="card">
+          <h3>Приватность и безопасность</h3>
+          <p>Мы не просим пароли и не показываем скрытые данные аккаунтов. Источники — только публичное пространство и легальные витрины данных.</p>
+          <p class="mt-1">Обращайте внимание на метки времени, ссылки на исходные страницы и степень совпадений.</p>
+        </article>
+      </section>
 
-    <section class="cta">
-      <a class="btn" href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Открыть бота в Telegram</a>
-      <p class="mt-2" style="color:#8fb9c9">Нужна помощь? Пишите в <a class="inline" href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">поддержку</a>.</p>
-    </section>
-  </main>
+      <section class="cta">
+        <a class="btn" href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener">Открыть бота в Telegram</a>
+        <p class="mt-2" style="color:#8fb9c9">Нужна помощь? Пишите в <a class="inline" href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener">поддержку</a>.</p>
+      </section>
+    </main>
 
-  <footer>© 2025 FENIX • OSINT-поиск • индексация и открытые источники</footer>
+    <footer>© 2025 FENIX • OSINT-поиск • индексация и открытые источники</footer>
+  </div>
 
   <audio id="bgMusic" autoplay loop>
     <source src="background_music.mp3" type="audio/mpeg" />
